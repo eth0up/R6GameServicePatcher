@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,11 +23,10 @@ namespace R6GameService_Patcher
             Console.WriteLine(@"                            `----'  /====/            \    |");
             Console.WriteLine(@"                                    `-._/             :____|");
             Console.WriteLine();
-            Console.WriteLine(@"     R6GameService.dll ""Try Again Time"" patch v1 by Chriswak");
+            Console.WriteLine(@"     R6GameService.dll ""Try Again Time"" patch v1.1 by Chriswak");
             Console.WriteLine();
             Console.WriteLine();
 
-            //PatchFile(@"C:\Temp\R6GameService.dll", @"C:\Temp\R6GameService.dll");
             PatchFile(@"R6GameService.dll", @"R6GameService.dll");
         }
 
@@ -55,8 +54,7 @@ namespace R6GameService_Patcher
         {
             if (!File.Exists(originalFile))
             {
-                Console.WriteLine("DLL not found! Run this program from the same directory where the R6GameService.dll exists.");
-                Console.WriteLine();
+                Console.WriteLine("DLL not found! Run this program from the same directory where the R6GameService.dll exists.\r\n");
                 Console.WriteLine("Press any key to exit.");
                 Console.ReadKey();
                 Environment.Exit(0);
@@ -64,8 +62,7 @@ namespace R6GameService_Patcher
 
             // Read file bytes.
             byte[] fileContent = File.ReadAllBytes(originalFile);
-            Console.WriteLine("File read: SUCCESS");
-            Console.WriteLine();
+            Console.WriteLine("File read: SUCCESS\r\n");
 
             bool canBePatched = false;
             // Detect insert points and patch DLL.
@@ -84,13 +81,11 @@ namespace R6GameService_Patcher
             
             if(canBePatched)
             {
-                Console.WriteLine("Patch data: READY");
-                Console.WriteLine();
+                Console.WriteLine("Patch data: READY\r\n");
             }
             else
             {
-                Console.WriteLine("!!!ERROR!!!: No patchable code found. Is DLL already patched?");
-                Console.WriteLine();
+                Console.WriteLine("!!!ERROR!!!: No patchable code found. Is DLL already patched?\r\n");
                 Console.WriteLine("No patches were applied! Press any key to exit.");
                 Console.ReadKey();
                 Environment.Exit(0);
@@ -98,15 +93,12 @@ namespace R6GameService_Patcher
 
             // Backup/Save DLL to location.
             Console.WriteLine("!!!WARNING!!! The current R6GameService.dll will be backed up to R6GameService.dll.bak.");
-            Console.WriteLine("If you continue, changes will be permanently written to R6GameService.dll!");
-            Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine("If you continue, changes will be permanently written to R6GameService.dll!\r\n\r\n");
             Console.WriteLine("Press any key to continue -OR- close this window to cancel.");
             Console.ReadKey();
             Console.WriteLine();
             File.Copy(originalFile, originalFile + ".bak", true);
-            Console.WriteLine("Backed up current R6GameService.dll to R6GameService.dll.bak...");
-            Console.WriteLine();
+            Console.WriteLine("Backed up current R6GameService.dll to R6GameService.dll.bak...\r\n");
 
             try
             {
@@ -114,8 +106,7 @@ namespace R6GameService_Patcher
             }
             catch (System.IO.IOException)
             {
-                Console.WriteLine("!!!ERROR!!!: Server is running, or file is otherwise read-only.");
-                Console.WriteLine();
+                Console.WriteLine("!!!ERROR!!!: Server is running, or file is otherwise read-only.\r\n");
                 Console.WriteLine("No patches were applied! Press any key to exit.");
                 Console.ReadKey();
                 Environment.Exit(0);
