@@ -17,11 +17,8 @@ namespace R6GameService_Patcher
             Console.WriteLine(@"                 |=|      \ \  | |    )====)     `:__      |");
             Console.WriteLine(@"                 |__\      \ \_) |   /====/          \     |");
             Console.WriteLine(@"                            `----'  /====/            \    |");
-            Console.WriteLine(@"                                    `-._/             :____|");
-            Console.WriteLine();
-            Console.WriteLine(@"     R6GameService.dll ""Try Again Time"" patch v1.1 by Chriswak");
-            Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine(@"                                    `-._/             :____|\n");
+            Console.WriteLine(@"     R6GameService.dll ""Try Again Time"" patch v1.1 by Chriswak\n\n");
 
             PatchFile(@"R6GameService.dll", @"R6GameService.dll");
         }
